@@ -1,6 +1,17 @@
-<% provide(:title, "Home") %>
 <head>
-  <title><%= yield(:title) %></title>
+  <%= yield :head %>
 </head>
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<% content_for :head do %>
+  <title>A simple page</title>
+<% end %>
+<body>
+  <div class="center jumbotron">
+    <h1>Home</h1>
+    <h2>
+      Welcome to the home page of the demo application. Click below to sign up.
+    </h2>
+
+    <%= link_to "Sign Up", signup_path, class: "btn btn-lg btn-primary" %>  
+  </div>
+  <%= link_to image_tag("rails.png", alt: "Rails logo"), 'http://rubyonrails.org/' %>
+</body>
